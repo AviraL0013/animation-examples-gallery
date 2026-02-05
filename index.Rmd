@@ -1,0 +1,46 @@
+---
+title: "Aviral's Animint Gallery"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(knitr)
+```
+
+## My Interactive Data Visualizations
+
+Gallery of my animint visualizations created using R.
+```{r gallery_table}
+meta <- if(file.exists("meta.csv")) {
+  read.csv("meta.csv", stringsAsFactors = FALSE)
+} else {
+  data.frame(repo = character(), title = character(), 
+             source = character(), viz.link = character(), 
+             screenshot = character(), stringsAsFactors = FALSE)
+}
+
+if(nrow(meta) > 0) {
+  for(i in 1:nrow(meta)) {
+    row <- meta[i,]
+    
+    # Screenshot
+    if(!is.na(row$screenshot) && row$screenshot != "") {
+      cat(sprintf('<a href="%s"><img src="%s" width="400"/></a>\n\n', 
+                  row$viz.link, row$screenshot))
+    }
+    
+    # Title
+    cat(sprintf('### %s\n\n', row$title))
+    
+    # Links
+    cat(sprintf('[View Viz](%s) | [GitHub](%s) | [Source](%s)\n\n---\n\n',
+                row$viz.link,
+                paste0('https://github.com/', row$repo),
+                row$source))
+  }
+} else {
+  cat("Run animint2::update_gallery() to populate gallery.")
+}
+```
+
+**Last Updated:** `r Sys.Date()`
