@@ -1,46 +1,21 @@
 ---
-title: "Aviral's Animint Gallery"
+title: "My Animint Gallery"
 output: html_document
 ---
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
-library(knitr)
-```
 
-## My Interactive Data Visualizations
+## My Interactive Visualizations
 
-Gallery of my animint visualizations created using R.
-```{r gallery_table}
-meta <- if(file.exists("meta.csv")) {
-  read.csv("meta.csv", stringsAsFactors = FALSE)
-} else {
-  data.frame(repo = character(), title = character(), 
-             source = character(), viz.link = character(), 
-             screenshot = character(), stringsAsFactors = FALSE)
-}
+### World Bank Visualization
+[View Viz](https://AviraL0013.github.io/worldbank-viz) | [GitHub](https://github.com/AviraL0013/worldbank-viz) | [Source](https://github.com/AviraL0013/worldbank-viz/tree/gh-pages)
 
-if(nrow(meta) > 0) {
-  for(i in 1:nrow(meta)) {
-    row <- meta[i,]
-    
-    # Screenshot
-    if(!is.na(row$screenshot) && row$screenshot != "") {
-      cat(sprintf('<a href="%s"><img src="%s" width="400"/></a>\n\n', 
-                  row$viz.link, row$screenshot))
-    }
-    
-    # Title
-    cat(sprintf('### %s\n\n', row$title))
-    
-    # Links
-    cat(sprintf('[View Viz](%s) | [GitHub](%s) | [Source](%s)\n\n---\n\n',
-                row$viz.link,
-                paste0('https://github.com/', row$repo),
-                row$source))
-  }
-} else {
-  cat("Run animint2::update_gallery() to populate gallery.")
-}
-```
+---
 
-**Last Updated:** `r Sys.Date()`
+### Student Performance Visualization  
+[View Viz](https://AviraL0013.github.io/student-performance-viz) | [GitHub](https://github.com/AviraL0013/student-performance-viz) | [Source](https://github.com/AviraL0013/student-performance-code)
+
+---
+
+### Least Squares Method
+[View Viz](https://aviral0013.github.io/least-squares-animint/) | [GitHub](https://github.com/AviraL0013/least-squares-animint) | [Source](https://github.com/AviraL0013/least-squares-animint/blob/main/source/least_squares_animint.R)
+
+

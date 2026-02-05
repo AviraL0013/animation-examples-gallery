@@ -1,13 +1,3 @@
-caijun/AnimintTest
-faizan-khan-iit/gsoc_animint
-anshul96go/R_animint2_GSOC
-lazycipher/Tests-for-Animated-interactive-ggplots
-shubhammittal588/Animated_interactive_ggplots_GSoC_Tasks
-ampurr/gsoc
-Vatsal-Rajput/Animint2Test
-Tushar98644/Animint2_Tests
-busttech/Test-solutions-of-animint
-suhaani-agarwal/r
-Aryan-SINGH-GIT/animated-interactive-ggplots
-aakritixyz/buffon-needle-test
+AviraL0013/worldbank-viz
+AviraL0013/student-performance-viz
 AviraL0013/least-squares-animint
