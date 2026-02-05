@@ -5,8 +5,6 @@ output: html_document
 
 ## Statistical Animation Examples Ported to Animint
 
-Collection of interactive data visualizations from the animation package, ported to animint2.
-
 ---
 
 ### Gradient Descent
@@ -34,6 +32,8 @@ By Himanshu Singh
 ---
 
 ### Demonstration of the Galton Box
+<img src="images/shubhammittal588.png" width="600"/>
+
 By Shubham Mittal  
 [View Viz](https://shubhammittal588.github.io/Shubham-Mittal-GSoC/Galton_box/index2.html) | [Source](https://github.com/shubhammittal588/Animated_interactive_ggplots_GSoC_Tasks/blob/main/galton_box_final.R) | [Original Animation](https://yihui.org/animation/example/quincunx/)
 
@@ -46,6 +46,8 @@ By J. Chen
 ---
 
 ### Demonstration of Brownian Motion
+<img src="images/vatsal-rajput.png" width="600"/>
+
 By Vatsal Rajput  
 [View Viz](https://vatsal-rajput.github.io/BrownianMotion/) | [Source](https://github.com/Vatsal-Rajput/Animint2Test) | [Original Animation](https://yihui.org/animation/example/brownian-motion/)
 
@@ -58,18 +60,24 @@ By Tushar Banik
 ---
 
 ### Probability in Flipping Coins
+<img src="images/busttech.png" width="600"/>
+
 By Tarun Choudhary  
 [View Viz](https://busttech.github.io/deploy2/) | [Source](https://github.com/busttech/Test-solutions-of-animint/blob/main/Medium-test-solution/main.r) | [Original Animation](https://yihui.org/animation/example/flip-coin)
 
 ---
 
 ### Newton-Raphson Method for Root-Finding
+<img src="images/suhaani-agarwal.png" width="600"/>
+
 By Suhaani Agarwal  
 [View Viz](https://suhaani-agarwal.github.io/r/newton_raphson_method/index.html) | [Source](https://github.com/suhaani-agarwal/r/tree/main/medium_test_newtons_method_code/newtons_root.r) | [Original Animation](https://yihui.org/animation/example/newton-method/)
 
 ---
 
 ### k-Nearest Neighbour (kNN) Classification
+<img src="images/aryan-singh.png" width="600"/>
+
 By Aryan Singh  
 [View Viz](https://Aryan-SINGH-GIT.github.io/knn-animint) | [Source](https://github.com/Aryan-SINGH-GIT/animated-interactive-ggplots/blob/master/02_animint2_interactions/knn_animint.R) | [Original Animation](https://yihui.org/animation/example/knn-ani/)
 
@@ -82,17 +90,21 @@ By Aakriti Kushwaha
 ---
 
 ### Least Squares Method
+<img src="images/aviralsapra.png" width="600"/>
+
 By Aviral Sapra  
 [View Viz](https://aviral0013.github.io/least-squares-animint/) | [Source](https://github.com/AviraL0013/least-squares-animint/blob/main/source/least_squares_animint.R) | [Original Animation](https://yihui.org/animation/example/least-squares/)
 
 ---
 
 ### Brownian Motion in a Circle
+<img src="images/prateek-kalwar-95.png" width="600"/>
+
 By Prateek Kalwar  
 [View Viz](https://prateek-kalwar-95.github.io/brownian_motion_in_Circle/) | [Source](https://github.com/prateek-kalwar-95/brownian_motion_in_Circle/blob/main/Brownian.R) | [Original Animation](https://yihui.org/animation/example/bm-circle/)
 
 ---
 
-**Total Visualizations:** 14
+**Total:** 14 Visualizations (7 with screenshots)
 
 
