@@ -11,7 +11,7 @@
 
 
 
-<title>Ports of Animation Gallery</title>
+<title>Statistical Animation Gallery</title>
 
 <script src="index_files/header-attrs-2.30/header-attrs.js"></script>
 <script src="index_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -58,6 +58,7 @@ if (window.hljs) {
 
 
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 
 
 
@@ -160,93 +161,244 @@ pre code {
 
 
 
-<h1 class="title toc-ignore">Ports of Animation Gallery</h1>
+<h1 class="title toc-ignore">Statistical Animation Gallery</h1>
 
 </div>
 
 
-<p>This is a gallery of data visualizations created using <a
-href="https://github.com/animint/animint2">animint2</a>.</p>
-<pre><code>## data.table 1.18.0 using 10 threads (see ?getDTthreads).  Latest news: r-datatable.com</code></pre>
-<table>
-<colgroup>
-<col width="39%" />
-<col width="9%" />
-<col width="51%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">viz.link</th>
-<th align="left">title</th>
-<th align="left">links</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td
-align="left"><a href="https://Aryan-SINGH-GIT.github.io/knn-animint/"><img src="repos/Aryan-SINGH-GIT_knn-animint.png" width="400"/></a></td>
-<td align="left">k-Nearest Neighbours Classification</td>
-<td
-align="left"><a href="https://github.com/Aryan-SINGH-GIT/knn-animint">repo</a>
-<a href="https://github.com/Aryan-SINGH-GIT/animated-interactive-ggplots/blob/master/02_animint2_interactions/knn_animint.R">source</a></td>
-</tr>
-<tr class="even">
-<td
-align="left"><a href="https://AviraL0013.github.io/least-squares-animint/"><img src="repos/AviraL0013_least-squares-animint.png" width="400"/></a></td>
-<td align="left">Least Squares Method</td>
-<td
-align="left"><a href="https://github.com/AviraL0013/least-squares-animint">repo</a>
-<a href="https://github.com/AviraL0013/least-squares-animint/blob/main/source/least_squares_animint.R">source</a></td>
-</tr>
-<tr class="odd">
-<td
-align="left"><a href="https://busttech.github.io/deploy2/"><img src="repos/busttech_deploy2.png" width="400"/></a></td>
-<td align="left">Probability in flipping coins</td>
-<td align="left"><a href="https://github.com/busttech/deploy2">repo</a>
-<a href="https://github.com/busttech/Test-solutions-of-animint/blob/main/Medium-test-solution/main.r">source</a></td>
-</tr>
-<tr class="even">
-<td
-align="left"><a href="https://prateek-kalwar-95.github.io/brownian_motion_in_Circle/"><img src="repos/prateek-kalwar-95_brownian_motion_in_Circle.png" width="400"/></a></td>
-<td align="left">Brownian Motion in a Circle</td>
-<td
-align="left"><a href="https://github.com/prateek-kalwar-95/brownian_motion_in_Circle">repo</a>
-<a href="https://github.com/prateek-kalwar-95/brownian_motion_in_Circle/blob/main/Brownian.R">source</a></td>
-</tr>
-<tr class="odd">
-<td
-align="left"><a href="https://shubhammittal588.github.io/Galton_box/"><img src="repos/shubhammittal588_Galton_box.png" width="400"/></a></td>
-<td align="left">Demonstration of the Galton Box</td>
-<td
-align="left"><a href="https://github.com/shubhammittal588/Galton_box">repo</a>
-<a href="https://github.com/shubhammittal588/Animated_interactive_ggplots_GSoC_Tasks/blob/main/galton_box_final.R">source</a></td>
-</tr>
-<tr class="even">
-<td
-align="left"><a href="https://suhaani-agarwal.github.io/newton_raphson_method/"><img src="repos/suhaani-agarwal_newton_raphson_method.png" width="400"/></a></td>
-<td align="left">Newton-Raphson method</td>
-<td
-align="left"><a href="https://github.com/suhaani-agarwal/newton_raphson_method">repo</a>
-<a href="https://github.com/suhaani-agarwal/r/tree/main/medium_test_newtons_method_code/newtons_root.r">source</a></td>
-</tr>
-<tr class="odd">
-<td
-align="left"><a href="https://Vatsal-Rajput.github.io/BrownianMotion/"><img src="repos/Vatsal-Rajput_BrownianMotion.png" width="400"/></a></td>
-<td align="left">Demonstration of Brownian Motion</td>
-<td
-align="left"><a href="https://github.com/Vatsal-Rajput/BrownianMotion">repo</a>
-<a href="https://github.com/Vatsal-Rajput/Animint2Test">source</a></td>
-</tr>
-</tbody>
-</table>
-<p><a href="meta.csv">Download meta.csv</a></p>
-<div id="source" class="section level2">
-<h2>Source</h2>
-<ul>
-<li><a
-href="https://github.com/AviraL0013/animation-examples-gallery">This
-gallery repository</a></li>
-</ul>
+<style type="text/css">
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f5f5f5;
+}
+
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 60px 40px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  font-weight: 700;
+}
+
+.header p {
+  margin: 10px 0 0 0;
+  font-size: 1.2em;
+  opacity: 0.9;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin: 30px 0;
+}
+
+.viz-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.viz-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.viz-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.viz-content {
+  padding: 20px;
+}
+
+.viz-title {
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 15px 0;
+}
+
+.viz-links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.viz-links a {
+  padding: 8px 16px;
+  background: #667eea;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9em;
+  transition: background 0.3s;
+}
+
+.viz-links a:hover {
+  background: #5568d3;
+}
+
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+  margin-top: 40px;
+}
+
+.stats-box {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 30px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stats-number {
+  font-size: 3em;
+  font-weight: 700;
+  color: #667eea;
+  margin: 0;
+}
+
+.stats-label {
+  color: #666;
+  margin: 5px 0 0 0;
+}
+</style>
+<div class="header">
+<h1>
+?? Animation Gallery
+</h1>
+<p>
+Interactive Statistical Visualizations with Animint2
+</p>
+</div>
+<div class="stats-box">
+<p class="stats-number">
+7
+</p>
+<p class="stats-label">
+Interactive Visualizations
+</p>
+</div>
+<div class="viz-grid">
+<div class="viz-card">
+<a href="https://Aryan-SINGH-GIT.github.io/knn-animint/" target="_blank">
+<img src="repos/Aryan-SINGH-GIT_knn-animint.png" class="viz-image" alt="k-Nearest Neighbours Classification"/>
+</a>
+<div class="viz-content">
+<pre><code>&lt;h3 class=&quot;viz-title&quot;&gt;k-Nearest Neighbours Classification&lt;/h3&gt;
+&lt;div class=&quot;viz-links&quot;&gt;
+  &lt;a href=&quot;https://Aryan-SINGH-GIT.github.io/knn-animint/&quot; target=&quot;_blank&quot;&gt;?? View Live&lt;/a&gt;
+  &lt;a href=&quot;https://github.com/Aryan-SINGH-GIT/knn-animint&quot; target=&quot;_blank&quot;&gt;?? Repository&lt;/a&gt;
+  &lt;a href=&quot;https://github.com/Aryan-SINGH-GIT/animated-interactive-ggplots/blob/master/02_animint2_interactions/knn_animint.R&quot; target=&quot;_blank&quot;&gt;?? Source Code&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+<div class="viz-card">
+<a href="https://AviraL0013.github.io/least-squares-animint/" target="_blank">
+<img src="repos/AviraL0013_least-squares-animint.png" class="viz-image" alt="Least Squares Method"/>
+</a>
+<div class="viz-content">
+<pre><code>&lt;h3 class=&quot;viz-title&quot;&gt;Least Squares Method&lt;/h3&gt;
+&lt;div class=&quot;viz-links&quot;&gt;
+  &lt;a href=&quot;https://AviraL0013.github.io/least-squares-animint/&quot; target=&quot;_blank&quot;&gt;?? View Live&lt;/a&gt;
+  &lt;a href=&quot;https://github.com/AviraL0013/least-squares-animint&quot; target=&quot;_blank&quot;&gt;?? Repository&lt;/a&gt;
+  &lt;a href=&quot;https://github.com/AviraL0013/least-squares-animint/blob/main/source/least_squares_animint.R&quot; target=&quot;_blank&quot;&gt;?? Source Code&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+<div class="viz-card">
+<a href="https://busttech.github.io/deploy2/" target="_blank">
+<img src="repos/busttech_deploy2.png" class="viz-image" alt="Probability in flipping coins"/>
+</a>
+<div class="viz-content">
+<pre><code>&lt;h3 class=&quot;viz-title&quot;&gt;Probability in flipping coins&lt;/h3&gt;
+&lt;div class=&quot;viz-links&quot;&gt;
+  &lt;a href=&quot;https://busttech.github.io/deploy2/&quot; target=&quot;_blank&quot;&gt;?? View Live&lt;/a&gt;
+  &lt;a href=&quot;https://github.com/busttech/deploy2&quot; target=&quot;_blank&quot;&gt;?? Repository&lt;/a&gt;
+  &lt;a href=&quot;https://github.com/busttech/Test-solutions-of-animint/blob/main/Medium-test-solution/main.r&quot; target=&quot;_blank&quot;&gt;?? Source Code&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+<div class="viz-card">
+<a href="https://prateek-kalwar-95.github.io/brownian_motion_in_Circle/" target="_blank">
+<img src="repos/prateek-kalwar-95_brownian_motion_in_Circle.png" class="viz-image" alt="Brownian Motion in a Circle"/>
+</a>
+<div class="viz-content">
+<pre><code>&lt;h3 class=&quot;viz-title&quot;&gt;Brownian Motion in a Circle&lt;/h3&gt;
+&lt;div class=&quot;viz-links&quot;&gt;
+  &lt;a href=&quot;https://prateek-kalwar-95.github.io/brownian_motion_in_Circle/&quot; target=&quot;_blank&quot;&gt;?? View Live&lt;/a&gt;
+  &lt;a href=&quot;https://github.com/prateek-kalwar-95/brownian_motion_in_Circle&quot; target=&quot;_blank&quot;&gt;?? Repository&lt;/a&gt;
+  &lt;a href=&quot;https://github.com/prateek-kalwar-95/brownian_motion_in_Circle/blob/main/Brownian.R&quot; target=&quot;_blank&quot;&gt;?? Source Code&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+<div class="viz-card">
+<a href="https://shubhammittal588.github.io/Galton_box/" target="_blank">
+<img src="repos/shubhammittal588_Galton_box.png" class="viz-image" alt="Demonstration of the Galton Box"/>
+</a>
+<div class="viz-content">
+<pre><code>&lt;h3 class=&quot;viz-title&quot;&gt;Demonstration of the Galton Box&lt;/h3&gt;
+&lt;div class=&quot;viz-links&quot;&gt;
+  &lt;a href=&quot;https://shubhammittal588.github.io/Galton_box/&quot; target=&quot;_blank&quot;&gt;?? View Live&lt;/a&gt;
+  &lt;a href=&quot;https://github.com/shubhammittal588/Galton_box&quot; target=&quot;_blank&quot;&gt;?? Repository&lt;/a&gt;
+  &lt;a href=&quot;https://github.com/shubhammittal588/Animated_interactive_ggplots_GSoC_Tasks/blob/main/galton_box_final.R&quot; target=&quot;_blank&quot;&gt;?? Source Code&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+<div class="viz-card">
+<a href="https://suhaani-agarwal.github.io/newton_raphson_method/" target="_blank">
+<img src="repos/suhaani-agarwal_newton_raphson_method.png" class="viz-image" alt="Newton-Raphson method"/>
+</a>
+<div class="viz-content">
+<pre><code>&lt;h3 class=&quot;viz-title&quot;&gt;Newton-Raphson method&lt;/h3&gt;
+&lt;div class=&quot;viz-links&quot;&gt;
+  &lt;a href=&quot;https://suhaani-agarwal.github.io/newton_raphson_method/&quot; target=&quot;_blank&quot;&gt;?? View Live&lt;/a&gt;
+  &lt;a href=&quot;https://github.com/suhaani-agarwal/newton_raphson_method&quot; target=&quot;_blank&quot;&gt;?? Repository&lt;/a&gt;
+  &lt;a href=&quot;https://github.com/suhaani-agarwal/r/tree/main/medium_test_newtons_method_code/newtons_root.r&quot; target=&quot;_blank&quot;&gt;?? Source Code&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+<div class="viz-card">
+<a href="https://Vatsal-Rajput.github.io/BrownianMotion/" target="_blank">
+<img src="repos/Vatsal-Rajput_BrownianMotion.png" class="viz-image" alt="Demonstration of Brownian Motion"/>
+</a>
+<div class="viz-content">
+<pre><code>&lt;h3 class=&quot;viz-title&quot;&gt;Demonstration of Brownian Motion&lt;/h3&gt;
+&lt;div class=&quot;viz-links&quot;&gt;
+  &lt;a href=&quot;https://Vatsal-Rajput.github.io/BrownianMotion/&quot; target=&quot;_blank&quot;&gt;?? View Live&lt;/a&gt;
+  &lt;a href=&quot;https://github.com/Vatsal-Rajput/BrownianMotion&quot; target=&quot;_blank&quot;&gt;?? Repository&lt;/a&gt;
+  &lt;a href=&quot;https://github.com/Vatsal-Rajput/Animint2Test&quot; target=&quot;_blank&quot;&gt;?? Source Code&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>
+Built with ❤️ using
+<a href="https://github.com/animint/animint2" style="color: #667eea;">animint2</a>
+</p>
+<p>
+<a href="meta.csv" style="color: #667eea;">Download metadata (CSV)</a>
+</p>
 </div>
 
 

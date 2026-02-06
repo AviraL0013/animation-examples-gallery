@@ -1,41 +1,178 @@
 ---
-title: "Ports of Animation Gallery"
+title: "Statistical Animation Gallery"
 output:
   html_document:
     self_contained: false
+    css: style.css
 ---
-
-This is a gallery of data visualizations created using [animint2](https://github.com/animint/animint2).
-```{r setup, echo=FALSE}
-knitr::opts_chunk$set(echo=FALSE, results="asis")
-ahref <- function(href, text){
-  sprintf('<a href="%s">%s</a>', href, text)
+```{css, echo=FALSE}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f5f5f5;
 }
+
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 60px 40px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  font-weight: 700;
+}
+
+.header p {
+  margin: 10px 0 0 0;
+  font-size: 1.2em;
+  opacity: 0.9;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin: 30px 0;
+}
+
+.viz-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.viz-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.viz-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.viz-content {
+  padding: 20px;
+}
+
+.viz-title {
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 15px 0;
+}
+
+.viz-links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.viz-links a {
+  padding: 8px 16px;
+  background: #667eea;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9em;
+  transition: background 0.3s;
+}
+
+.viz-links a:hover {
+  background: #5568d3;
+}
+
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+  margin-top: 40px;
+}
+
+.stats-box {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 30px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stats-number {
+  font-size: 3em;
+  font-weight: 700;
+  color: #667eea;
+  margin: 0;
+}
+
+.stats-label {
+  color: #666;
+  margin: 5px 0 0 0;
+}
+```
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo=FALSE, results="asis")
 library(data.table)
 ```
-```{r load_data}
-meta.dt <- fread("meta.csv")
-meta.dt[, img.png := sprintf("repos/%s.png", gsub("/", "_", viz_owner_repo))]
-meta.dt[, viz.link := ahref(
-  sprintf("https://%s.github.io/%s/", 
-          sub("/.*", "", viz_owner_repo),
-          sub(".*/", "", viz_owner_repo)),
-  ifelse(file.exists(img.png),
-         sprintf('<img src="%s" width="400"/>', img.png),
-         viz_owner_repo)
-)]
-meta.dt[, repo.link := ahref(
-  sprintf("https://github.com/%s", viz_owner_repo), "repo"
-)]
-meta.dt[, source.link := ahref(source, "source")]
-meta.dt[, links := paste(repo.link, source.link)]
-```
-```{r display_table}
-knitr::kable(meta.dt[, .(viz.link, title, links)])
+
+<div class="header">
+  <h1>?? Animation Gallery</h1>
+  <p>Interactive Statistical Visualizations with Animint2</p>
+</div>
+```{r stats}
+meta <- fread("meta.csv")
+cat(sprintf('
+<div class="stats-box">
+  <p class="stats-number">%d</p>
+  <p class="stats-label">Interactive Visualizations</p>
+</div>
+', nrow(meta)))
 ```
 
-[Download meta.csv](meta.csv)
+<div class="viz-grid">
+```{r gallery}
+for(i in 1:nrow(meta)) {
+  row <- meta[i,]
+  img_path <- sprintf("repos/%s.png", gsub("/", "_", row$viz_owner_repo))
+  viz_url <- sprintf("https://%s.github.io/%s/", 
+                     sub("/.*", "", row$viz_owner_repo),
+                     sub(".*/", "", row$viz_owner_repo))
+  repo_url <- sprintf("https://github.com/%s", row$viz_owner_repo)
+  
+  cat(sprintf('
+<div class="viz-card">
+  <a href="%s" target="_blank">
+    <img src="%s" class="viz-image" alt="%s"/>
+  </a>
+  <div class="viz-content">
+    <h3 class="viz-title">%s</h3>
+    <div class="viz-links">
+      <a href="%s" target="_blank">?? View Live</a>
+      <a href="%s" target="_blank">?? Repository</a>
+      <a href="%s" target="_blank">?? Source Code</a>
+    </div>
+  </div>
+</div>
+', viz_url, img_path, row$title, row$title, viz_url, repo_url, row$source))
+}
+```
 
-## Source
-* [This gallery repository](https://github.com/AviraL0013/animation-examples-gallery)
+</div>
+
+<div class="footer">
+  <p>Built with ❤️ using <a href="https://github.com/animint/animint2" style="color: #667eea;">animint2</a></p>
+  <p><a href="meta.csv" style="color: #667eea;">Download metadata (CSV)</a></p>
+</div>
+
 
