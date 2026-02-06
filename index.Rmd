@@ -11,17 +11,12 @@ suppressPackageStartupMessages(library(data.table))
 ```
 
 <div class="header">
-  <h1>?? Animation Gallery</h1>
+  <h1>Animation Gallery</h1>
   <p>Interactive Statistical Visualizations with Animint2</p>
 </div>
 ```{r stats}
 meta <- fread("meta.csv")
-cat(sprintf('
-<div class="stats-box">
-  <p class="stats-number">%d</p>
-  <p class="stats-label">Interactive Visualizations</p>
-</div>
-', nrow(meta)))
+cat(sprintf('<div class="stats-box"><p class="stats-number">%d</p><p class="stats-label">Interactive Visualizations</p></div>', nrow(meta)))
 ```
 
 <div class="viz-grid">
@@ -34,29 +29,15 @@ for(i in 1:nrow(meta)) {
                      sub(".*/", "", row$viz_owner_repo))
   repo_url <- sprintf("https://github.com/%s", row$viz_owner_repo)
   
-  cat(sprintf('
-<div class="viz-card">
-  <a href="%s" target="_blank">
-    <img src="%s" class="viz-image" alt="%s"/>
-  </a>
-  <div class="viz-content">
-    <h3 class="viz-title">%s</h3>
-    <div class="viz-links">
-      <a href="%s" target="_blank">?? View Live</a>
-      <a href="%s" target="_blank">?? Repository</a>
-      <a href="%s" target="_blank">?? Source Code</a>
-    </div>
-  </div>
-</div>
-', viz_url, img_path, row$title, row$title, viz_url, repo_url, row$source))
+  cat(sprintf('<div class="viz-card"><a href="%s" target="_blank"><img src="%s" class="viz-image" alt="%s"/></a><div class="viz-content"><h3 class="viz-title">%s</h3><div class="viz-links"><a href="%s" target="_blank">View Live</a><a href="%s" target="_blank">Repository</a><a href="%s" target="_blank">Source Code</a></div></div></div>', 
+  viz_url, img_path, row$title, row$title, viz_url, repo_url, row$source))
 }
 ```
 
 </div>
 
 <div class="footer">
-  <p>Built with ❤️ using <a href="https://github.com/animint/animint2" style="color: #667eea;">animint2</a></p>
-  <p><a href="meta.csv" style="color: #667eea;">Download metadata</a></p>
+  <p>Built with animint2 | <a href="meta.csv" style="color: #667eea;">Download Data</a></p>
 </div>
 
 
